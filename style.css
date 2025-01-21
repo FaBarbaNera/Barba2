@@ -1,3 +1,11 @@
+/* Carica il font personalizzato */
+@font-face {
+    font-family: 'AdamBold';
+    src: url('fonts/Adam-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /* Stili generali */
 body {
     font-family: Arial, sans-serif;
@@ -11,12 +19,14 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 101; /* Assicurati che sia sopra il menu laterale */
 }
 
+/* Modifica il logo per mostrare il testo "Barbanera" */
 #logo {
-    width: 200px;
+    font-family: 'AdamBold', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    text-transform: uppercase;
 }
 
 /* Menu laterale */
@@ -48,61 +58,13 @@ header {
     background-color: #444;
 }
 
-/* Bottone per aprire il menu laterale */
 #menu-toggle {
-    position: fixed;  /* Posizione fissa per mantenerlo sempre visibile */
+    position: absolute;
     top: 20px;
     left: 20px;
     font-size: 30px;
     color: #333;
     cursor: pointer;
-    z-index: 102; /* Deve essere sopra il menu laterale */
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav a:hover {
-    color: #fff;
-    background-color: #333;
-}
-
-/* Colori per i tasti nel menu */
-#home-link {
-    background-color: #ff6347; /* Tomato */
-}
-
-#menu-link {
-    background-color: #ff8c00; /* Dark Orange */
-}
-
-#ordina-link {
-    background-color: #228B22; /* Dark Green for Ordina dall'Ombrellone */
-}
-
-#ombrelloni-link {
-    background-color: #1e90ff; /* Dodger Blue */
-}
-
-#recensioni-link {
-    background-color: #9932cc; /* Dark Orchid */
-}
-
-#contatti-link {
-    background-color: #ff1493; /* Deep Pink (per "Contatti") */
-}
-
-/* Stato del link attivo */
-nav a.active {
-    background-color: #444;
 }
 
 /* Sezioni dinamiche */
@@ -116,65 +78,39 @@ nav a.active {
 }
 
 .section h2 {
-    font-size: 2.5em;
+    font-size: 3.5em;
 }
 
-.section p {
-    font-size: 1.2em;
-    margin-top: 20px;
-}
-
-/* Sezioni con i colori specifici */
+/* Colori per le sezioni */
 #home-section {
-    background-color: #ff6347;
+    background-color: #ff6347; /* Tomato */
 }
 
 #menu-section {
-    background-color: #ff8c00;
+    background-color: #ff8c00; /* Dark Orange */
 }
 
 #ordina-section {
-    background-color: #228B22;
+    background-color: #228B22; /* Dark Green */
 }
 
 #ombrelloni-section {
-    background-color: #1e90ff;
+    background-color: #1e90ff; /* Dodger Blue */
 }
 
 #recensioni-section {
-    background-color: #9932cc;
+    background-color: #9932cc; /* Dark Orchid */
 }
 
 #contatti-section {
-    background-color: #ff1493;
+    background-color: #ff1493; /* Deep Pink */
 }
 
-/* Sezione Contatti */
-#contatti-section a {
-    display: inline-block;
-    margin: 10px;
-    color: #fff;
-    background-color: #007bff;
-    padding: 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-#contatti-section a:hover {
-    background-color: #0056b3;
-}
-
-#contatti-section i {
-    margin-right: 10px;
-}
-
-/* WhatsApp Button */
+/* Pulsante WhatsApp */
 .whatsapp-btn {
     display: inline-block;
     margin: 10px;
-    background-color: #25D366; 
+    background-color: #25D366;
     color: white;
     padding: 12px 25px;
     text-decoration: none;
@@ -191,7 +127,6 @@ nav a.active {
     margin-right: 8px;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -200,32 +135,4 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Media Queries per dispositivi mobili */
-@media (max-width: 768px) {
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-
-    #home-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #home-images img {
-        max-width: 90%;
-    }
-}
-/* Sezione Menu con colore di sfondo */
-#menu-section {
-    background-color: #ff8c00; /* Colore del tasto Menu (Dark Orange) */
-}
-
-/* Stile dell'iframe */
-#menu-frame {
-    display: block;
-    margin-top: 20px;
-    border: none;
 }
