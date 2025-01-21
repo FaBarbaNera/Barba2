@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante e Chalet al Mare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Stili generali */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #logo {
+            width: 200px;
+        }
+
+        /* Menu laterale */
+        #side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: #333;
+            transition: left 0.3s ease-in-out;
+            z-index: 100;
+        }
+
+        #side-menu.open {
+            left: 0;
+        }
+
+        #side-menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        #side-menu a:hover {
+            background-color: #444;
+        }
+
+        /* Bottone per aprire il menu */
+        #menu-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Sezioni dinamiche */
+        .section {
+            display: none;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+        }
+
+        /* Colori per le sezioni */
+        #home-section {
+            background-color: #ff6347; /* Tomato */
+        }
+
+        #menu-section {
+            background-color: #ff8c00; /* Dark Orange */
+        }
+
+        #ordina-section {
+            background-color: #228B22; /* Dark Green */
+        }
+
+        #ombrelloni-section {
+            background-color: #1e90ff; /* Dodger Blue */
+        }
+
+        #recensioni-section {
+            background-color: #9932cc; /* Dark Orchid */
+        }
+
+        #contatti-section {
+            background-color: #ff1493; /* Deep Pink */
+        }
+
+        /* Stili per il pulsante WhatsApp */
+        .whatsapp-btn {
+            display: inline-block;
+            margin: 10px;
+            background-color: #25D366; 
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menu laterale -->
+    <div id="side-menu">
+        <a href="#home" id="home-link">Home</a>
+        <a href="#menu" id="menu-link">Menu</a>
+        <a href="#ordina" id="ordina-link">Ordina dall'Ombrellone</a>
+        <a href="#ombrelloni" id="ombrelloni-link">Ombrelloni</a>
+        <a href="#recensioni" id="recensioni-link">Recensioni</a>
+        <a href="#contatti" id="contatti-link">Contatti</a>
+    </div>
+
+    <!-- Bottone per aprire il menu -->
+    <div id="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Header con logo e menu di navigazione -->
+    <header>
+        <img src="images/logo.png" alt="Logo" id="logo">
+    </header>
+
+    <!-- Sezioni dinamiche -->
+    <main>
+        <section class="section" id="home-section">
+            <h2>Benvenuti al nostro Ristorante e Chalet al Mare!</h2>
+            <p>Goditi una giornata di relax con il nostro servizio spiaggia, bar sotto l'ombrellone e tanto altro.</p>
+        </section>
+
+        <section class="section" id="menu-section">
+            <h2>Il Nostro Menu</h2>
+            <p>Scopri il nostro menù ricco di piatti freschi e gustosi, preparati con ingredienti locali e di qualità.</p>
+            <button id="scopri-menu-link">Scopri il Menu</button>
+            <div id="menu-frame-container" style="display: none;">
+                <iframe id="menu-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
+            </div>
+        </section>
+
+        <section class="section" id="ordina-section">
+            <h2>Ordina dall'Ombrellone</h2>
+            <p>Ordina comodamente dal tuo ombrellone e ricevi direttamente il tuo ordine in spiaggia!</p>
+            <a href="https://wa.me/393207408549?text=Vorrei ordinare qualcosa" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Contattaci su WhatsApp
+            </a>
+        </section>
+
+        <section class="section" id="ombrelloni-section">
+            <h2>Ombrelloni e Servizi</h2>
+            <p>Scegli il tuo ombrellone e goditi una giornata indimenticabile al mare.</p>
+        </section>
+
+        <section class="section" id="recensioni-section">
+            <h2>Recensioni dei Nostri Clienti</h2>
+            <p>Leggi cosa dicono di noi i nostri clienti su Google!</p>
+        </section>
+
+        <section class="section" id="contatti-section">
+            <h2>Contattaci</h2>
+            <a href="https://www.facebook.com/ristorantebarbanera/" target="_blank">
+                <i class="fab fa-facebook"></i> Seguici su Facebook
+            </a>
+            <a href="https://wa.me/393207408549" target="_blank">
+                <i class="fab fa-whatsapp"></i> Scrivici su WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ristorante e Chalet al Mare. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Funzione per aprire e chiudere il menu laterale
+        function toggleMenu() {
+            document.getElementById('side-menu').classList.toggle('open');
+        }
+
+        // Funzione per caricare dinamicamente le sezioni
+        const links = document.querySelectorAll('#side-menu a');
+        const sections = document.querySelectorAll('.section');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1); // Ottieni l'id della sezione
+
+                // Nascondi tutte le sezioni
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Mostra la sezione selezionata
+                const targetSection = document.getElementById(targetId + '-section');
+                targetSection.style.display = 'block'; // Mostra la sezione cliccata
+
+                // Modifica il colore di sfondo della sezione in base al tasto
+                if (targetId === 'home') {
+                    targetSection.style.backgroundColor = '#ff6347'; // Tomato
+                } else if (targetId === 'menu') {
+                    targetSection.style.backgroundColor = '#ff8c00'; // Dark Orange
+                } else if (targetId === 'ordina') {
+                    targetSection.style.backgroundColor = '#228B22'; // Dark Green
+                } else if (targetId === 'ombrelloni') {
+                    targetSection.style.backgroundColor = '#1e90ff'; // Dodger Blue
+                } else if (targetId === 'recensioni') {
+                    targetSection.style.backgroundColor = '#9932cc'; // Dark Orchid
+                } else if (targetId === 'contatti') {
+                    targetSection.style.backgroundColor = '#ff1493'; // Deep Pink
+                }
+
+                // Rimuovi la classe 'active' da tutti i link
+                links.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Aggiungi la classe 'active' al link selezionato
+                this.classList.add('active');
+
+                // Chiudi il menu dopo il clic (opzionale)
+                document.getElementById('side-menu').classList.remove('open');
+            });
+        });
+
+        // Mostrare la sezione "Home" come predefinita quando la pagina si carica
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultSection = document.getElementById('home-section');
+            defaultSection.style.display = 'block'; // Mostra la sezione Home per default
+        });
+    </script>
+</body>
+</html>
