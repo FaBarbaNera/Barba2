@@ -12,13 +12,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Assicura che il body si estenda per almeno l'altezza dello schermo */
-}
-
-main {
-    flex: 1; /* Questo fa sì che il main occupi tutto lo spazio disponibile, lasciando lo spazio per il footer */
 }
 
 header {
@@ -93,14 +86,10 @@ header {
     background-color: #ff6347; /* Tomato */
 }
 
-/* Menu Section - Background senza limiti di altezza */
 #menu-section {
     background-color: #ff8c00; /* Dark Orange */
     padding: 40px;
     text-align: center;
-    min-height: 100vh; /* La sezione copre almeno l'altezza della finestra (schermo intero) */
-    background-size: cover; /* Assicura che il background si estenda correttamente */
-    background-position: center; /* Centra il background */
 }
 
 #menu-section h2 {
@@ -139,40 +128,10 @@ header {
 
 /* Stili per dispositivi mobili */
 @media (max-width: 768px) {
-    /* Ridurre l'altezza dell'iframe per schermi più piccoli */
     #menu-frame {
-        height: 400px;
-    }
-
-    #menu-section {
-        padding: 20px; /* Ridurre il padding per schermi più piccoli */
-    }
-
-    #menu-section h2 {
-        font-size: 2em; /* Ridurre la dimensione del titolo per schermi più piccoli */
-    }
-
-    #menu-section p {
-        font-size: 1em; /* Ridurre la dimensione del testo per schermi più piccoli */
-        margin-bottom: 20px; /* Ridurre il margine inferiore */
+        height: 400px; /* Ridurre l'altezza su schermi più piccoli */
     }
 }
-
-/* Stili per schermi più piccoli */
-@media (max-width: 480px) {
-    #menu-section {
-        padding: 15px; /* Ulteriore riduzione del padding su schermi molto piccoli */
-    }
-
-    #menu-section h2 {
-        font-size: 1.8em; /* Ridurre ulteriormente la dimensione del titolo */
-    }
-
-    #menu-section p {
-        font-size: 0.9em; /* Ridurre la dimensione del testo ancora di più */
-    }
-}
-
 
 
 #ordina-section {
@@ -183,10 +142,7 @@ header {
 
 #ordina-section h2 {
     font-size: 2.5em;
-    margin-bottom: 80px;
-}
-#ordina-section {
-    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 #ordina-section p {
@@ -248,8 +204,93 @@ header {
 
 
 #ombrelloni-section {
-    background-color: #1e90ff; /* Dodger Blue */
+    background-color: #1e90ff; /* Colore azzurro simile al mare */
+    color: white;
+    padding: 40px;
+    text-align: center;
 }
+
+#ombrelloni-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#ombrelloni-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Contenitore per le immagini degli ombrelloni */
+.ombrelloni-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Per far sì che le immagini si adattino su più righe nei dispositivi mobili */
+    margin-bottom: 40px;
+}
+
+/* Ogni ombrellone con immagine e descrizione */
+.ombrellone {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ombrellone img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.ombrellone h3 {
+    font-size: 1.5em;
+    margin-top: 15px;
+    color: #333;
+}
+
+.ombrellone p {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Bottone per la prenotazione */
+.prenotazione-link {
+    margin-top: 30px;
+}
+
+.prenotazione-btn {
+    background-color: #ff6347; /* Colore simile al tramonto, invitante */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.prenotazione-btn:hover {
+    background-color: #ff4500; /* Colore più scuro al passaggio del mouse */
+}
+
+@media (max-width: 768px) {
+    .ombrellone {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .ombrelloni-gallery {
+        flex-direction: column;
+    }
+
+    .prenotazione-btn {
+        font-size: 1.1em; /* Ridurre la dimensione del testo sui dispositivi mobili */
+    }
+}
+
 
 #recensioni-section {
     background-color: #9932cc; /* Dark Orchid */
@@ -267,7 +308,7 @@ header {
 #recensioni-section p {
     font-size: 1.2em;
     margin-bottom: 40px;
-    color: white;
+    color: rgb(0, 85, 195);
 }
 
 .reviews-container {
@@ -336,21 +377,24 @@ header {
 }
 
 
-/* Stili per la sezione Contatti */
 #contatti-section {
-    background-color: #ff1493; /* Deep Pink */
+    background-color: #ff1493; /* Colore rosa per il background */
     color: white;
     padding: 40px;
     text-align: center;
 }
 
-/* Titolo */
 #contatti-section h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-/* Social Media Icons */
+#contatti-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Contenitore per le icone social */
 .social-media {
     display: flex;
     justify-content: center;
@@ -358,38 +402,62 @@ header {
     margin-top: 20px;
 }
 
-/* Icona Social */
+/* Icone social */
 .social-icon {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s;
-}
-
-.social-icon:hover {
-    transform: scale(1.1); /* Effetto hover per ingrandire le icone */
-}
-
-/* Icona Telefono (Cornetta Bianca su sfondo verde) */
-.phone-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366; /* Verde WhatsApp */
-    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover: Cambio colore e ingrandimento delle icone */
+.social-icon:hover {
+    background-color: #25D366; /* Colore verde per WhatsApp */
+    transform: scale(1.1); /* Leggera animazione di ingrandimento */
+}
+
+.social-icon i {
+    margin-right: 8px;
+}
+
+/* Personalizzazione dei colori per i social */
+.social-icon:nth-child(1):hover {
+    background-color: #3b5998; /* Blu di Facebook */
     color: white;
-    font-size: 1.8em;
-    transition: transform 0.3s;
 }
 
-.phone-icon:hover {
-    transform: scale(1.1); /* Effetto hover per ingrandire l'icona */
+.social-icon:nth-child(2):hover {
+    background-color: #25D366; /* Verde di WhatsApp */
+    color: white;
 }
 
-.phone-icon i {
-    font-size: 1.5em; /* Regola la dimensione dell'icona della cornetta */
+.social-icon:nth-child(3):hover {
+    background-color: #E4405F; /* Colore rosso Instagram */
+    color: white;
 }
+
+.social-icon:nth-child(4):hover {
+    background-color: #128C7E; /* Colore verde telefonata */
+    color: white;
+}
+
+/* Responsività: Allineamento verticale su dispositivi mobili */
+@media (max-width: 768px) {
+    .social-media {
+        flex-direction: column;
+        gap: 20px; /* Aggiungiamo spazio verticale tra le icone */
+    }
+    .social-icon {
+        font-size: 1.2em; /* Ridurre la dimensione delle icone sui dispositivi mobili */
+    }
+}
+
 
 /* Mappa interattiva */
 #map-container iframe {
@@ -472,6 +540,7 @@ header {
     }
 }
 
+
 /* Pulsante WhatsApp */
 .whatsapp-btn {
     display: inline-block;
@@ -496,16 +565,100 @@ header {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     position: fixed; /* Reso fisso per rimanere in fondo alla pagina */
     bottom: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 5px rgb(255, 255, 255);
     transition: transform 0.3s ease; /* Aggiungi una transizione per la scomparsa */
 }
 
 footer.hidden {
     transform: translateY(100%); /* Sposta il footer fuori dalla vista */
 }
+#side-menu.open {
+    left: 0; /* Sposta il menu a sinistra quando è aperto */
+}
 
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Posizione iniziale del menu fuori dalla vista */
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    transition: left 0.3s ease-in-out; /* Aggiungi la transizione per il movimento */
+    z-index: 100;
+}
+#menu-frame-container {
+    display: none; /* Default: nascosto */
+    position: relative;  /* Aggiunto per il controllo della posizione */
+    z-index: 10;         /* Assicurati che l'iframe sia sopra le altre sezioni */
+    margin-top: 20px;     /* Aggiunto per distanziare l'iframe */
+    padding: 20px;        /* Padding per rendere più visibile */
+}
+
+#side-menu {
+    z-index: 1000; /* Menù laterale sopra le altre sezioni */
+}
+
+
+/* Controlla che l'iframe abbia un z-index più alto di quello della sezione */
+#menu-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    z-index: 9999; /* Assicurati che l'iframe venga sopra gli altri contenuti */
+}
+/* Stili per la sezione Home */
+#home-section {
+    background-color: #ff6347; /* Tomato */
+    padding: 40px;
+    text-align: center;
+}
+
+#home-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#home-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Contenitore delle immagini */
+.home-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tre immagini per riga */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Ogni immagine */
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Aumenta leggermente l'immagine al passaggio del mouse */
+}
+
+/* Stili per dispositivi mobili */
+@media (max-width: 768px) {
+    .home-images {
+        grid-template-columns: repeat(2, 1fr); /* Due immagini per riga su tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-images {
+        grid-template-columns: 1fr; /* Una sola immagine per riga su smartphone */
+    }
+}
