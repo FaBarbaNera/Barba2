@@ -93,10 +93,14 @@ header {
     background-color: #ff6347; /* Tomato */
 }
 
+/* Menu Section - Background senza limiti di altezza */
 #menu-section {
     background-color: #ff8c00; /* Dark Orange */
     padding: 40px;
     text-align: center;
+    min-height: 100vh; /* La sezione copre almeno l'altezza della finestra (schermo intero) */
+    background-size: cover; /* Assicura che il background si estenda correttamente */
+    background-position: center; /* Centra il background */
 }
 
 #menu-section h2 {
@@ -135,10 +139,40 @@ header {
 
 /* Stili per dispositivi mobili */
 @media (max-width: 768px) {
+    /* Ridurre l'altezza dell'iframe per schermi più piccoli */
     #menu-frame {
-        height: 400px; /* Ridurre l'altezza su schermi più piccoli */
+        height: 400px;
+    }
+
+    #menu-section {
+        padding: 20px; /* Ridurre il padding per schermi più piccoli */
+    }
+
+    #menu-section h2 {
+        font-size: 2em; /* Ridurre la dimensione del titolo per schermi più piccoli */
+    }
+
+    #menu-section p {
+        font-size: 1em; /* Ridurre la dimensione del testo per schermi più piccoli */
+        margin-bottom: 20px; /* Ridurre il margine inferiore */
     }
 }
+
+/* Stili per schermi più piccoli */
+@media (max-width: 480px) {
+    #menu-section {
+        padding: 15px; /* Ulteriore riduzione del padding su schermi molto piccoli */
+    }
+
+    #menu-section h2 {
+        font-size: 1.8em; /* Ridurre ulteriormente la dimensione del titolo */
+    }
+
+    #menu-section p {
+        font-size: 0.9em; /* Ridurre la dimensione del testo ancora di più */
+    }
+}
+
 
 
 #ordina-section {
