@@ -136,18 +136,18 @@ header {
 
 #ordina-section {
     background-color: #228B22; /* Dark Green */
-    padding: 40px;
+    padding: 20px;  /* Ridurre il padding per diminuire lo spazio tra i bordi della sezione */
     text-align: center;
 }
 
 #ordina-section h2 {
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 5px; /* Ridurre il margine inferiore tra titolo e paragrafo */
 }
 
 #ordina-section p {
     font-size: 1.2em;
-    margin-bottom: 40px;
+    margin-bottom: 10px; /* Ridurre il margine inferiore tra il testo e il pulsante */
 }
 
 /* Iframe per il menu */
@@ -155,6 +155,7 @@ header {
     width: 100%;
     max-width: 1000px; /* Limitiamo la larghezza massima dell'iframe */
     margin: 0 auto;
+    margin-bottom: 10px; /* Aggiungere un po' di spazio sotto l'iframe */
 }
 
 #ordina-frame {
@@ -166,10 +167,10 @@ header {
 /* Stile per il pulsante WhatsApp */
 .whatsapp-btn {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 10px; /* Ridurre il margine sopra il pulsante */
     background-color: #25D366; 
     color: white;
-    padding: 12px 25px;
+    padding: 10px 20px; /* Ridurre il padding del pulsante per ridurre lo spazio */
     text-decoration: none;
     border-radius: 50px;
     font-size: 1.2em;
@@ -181,7 +182,7 @@ header {
 }
 
 .whatsapp-btn i {
-    margin-right: 8px;
+    margin-right: 5px; /* Ridurre lo spazio tra l'icona e il testo */
 }
 
 /* Stili per il link in caso di problemi con l'iframe */
@@ -200,7 +201,26 @@ header {
     #ordina-frame {
         height: 400px; /* Ridurre l'altezza su schermi più piccoli */
     }
+    
+    #ordina-section {
+        padding: 15px; /* Ulteriore riduzione del padding su dispositivi mobili */
+    }
+    
+    #ordina-section h2 {
+        font-size: 2em; /* Ridurre la dimensione del titolo su dispositivi mobili */
+        margin-bottom: 5px;
+    }
+    
+    #ordina-section p {
+        font-size: 1em; /* Ridurre la dimensione del testo su dispositivi mobili */
+        margin-bottom: 8px;
+    }
+
+    .whatsapp-btn {
+        padding: 8px 15px; /* Ridurre il padding del pulsante su dispositivi mobili */
+    }
 }
+
 
 
 #ombrelloni-section {
