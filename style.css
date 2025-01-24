@@ -151,6 +151,9 @@ header {
     font-size: 2.5em;
     margin-bottom: 80px;
 }
+#ordina-section {
+    overflow: hidden;
+}
 
 #ordina-section p {
     font-size: 1.2em;
