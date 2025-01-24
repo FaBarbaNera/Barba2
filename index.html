@@ -192,39 +192,64 @@
             <h2>Il Nostro Menu</h2>
             <p>Scopri il nostro menù ricco di piatti freschi e gustosi, preparati con ingredienti locali e di qualità.</p>
             
+            <!-- Pulsante che apre il menu in una nuova pagina -->
+            <p>Se non visualizzi il nostro menù, <a href="https://web.popup.lol/dalboss" target="_blank">clicca qui</a> per aprirlo in una nuova pagina.</p>
+        
             <!-- Iframe che carica il menu -->
             <div id="menu-frame-container" style="display: block;">
                 <iframe id="menu-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
             </div>
             
-            <!-- Pulsante che apre il menu in una nuova pagina -->
-            <p>Se non visualizzi il nostro menù, <a href="https://web.popup.lol/dalboss" target="_blank">clicca qui</a> per aprirlo in una nuova pagina.</p>
-        </section>
+            </section>
         
 
         <section class="section" id="ordina-section">
             <h2>Ordina dall'Ombrellone</h2>
             <p>Ordina comodamente dal tuo ombrellone e ricevi direttamente il tuo ordine in spiaggia!</p>
             
-            <!-- Iframe che carica il servizio di ordine -->
-            <div id="ordina-frame-container" style="display: block;">
-                <iframe id="ordina-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
-            </div>
-            
-            <!-- Pulsante WhatsApp per contattare direttamente -->
+           <!-- Pulsante WhatsApp per contattare direttamente -->
             <a href="https://wa.me/393207408549?text=Vorrei ordinare qualcosa" class="whatsapp-btn">
                 <i class="fab fa-whatsapp"></i> Contattaci su WhatsApp
             </a>
             
             <!-- Messaggio con link per aprire in una nuova finestra, se l'iframe non si carica -->
             <p>Se non visualizzi il nostro menù, <a href="https://web.popup.lol/dalboss" target="_blank">clicca qui</a> per aprirlo in una nuova pagina.</p>
+        <!-- Iframe che carica il servizio di ordine -->
+            <div id="ordina-frame-container" style="display: block;">
+                <iframe id="ordina-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
+            </div>
         </section>
         
 
         <section class="section" id="ombrelloni-section">
             <h2>Ombrelloni e Servizi</h2>
-            <p>Scegli il tuo ombrellone e goditi una giornata indimenticabile al mare.</p>
+            <p>Scegli il tuo ombrellone e goditi una giornata indimenticabile al mare. Seleziona il posto che preferisci e rilassati!</p>
+            
+            <div class="ombrelloni-gallery">
+                <div class="ombrellone">
+                    <img src="path_to_image/ombrellone1.jpg" alt="Ombrellone Standard" />
+                    <h3>Ombrellone Standard</h3>
+                    <p>Un ombrellone comodo con lettino e servizio bar incluso.</p>
+                </div>
+                <div class="ombrellone">
+                    <img src="path_to_image/ombrellone2.jpg" alt="Ombrellone Premium" />
+                    <h3>Ombrellone Premium</h3>
+                    <p>Un ombrellone più grande, con lettino e servizio VIP.</p>
+                </div>
+                <div class="ombrellone">
+                    <img src="path_to_image/ombrellone3.jpg" alt="Ombrellone Deluxe" />
+                    <h3>Ombrellone Deluxe</h3>
+                    <p>Il massimo del comfort con lettino, teli mare, e cocktail inclusi.</p>
+                </div>
+            </div>
+        
+            <div class="prenotazione-link">
+                <!-- Link WhatsApp con il messaggio predefinito -->
+                <a href="https://wa.me/393207408549?text=Vorrei%20prenotare%20un%20ombrellone%20(standard/premium/deluxe)%20per%20il%20giorno%20XX%2FYY%2FZZ" class="prenotazione-btn">Prenota il tuo ombrellone</a>
+            </div>
         </section>
+        
+        
 
         <section class="section" id="recensioni-section">
             <h2>Recensioni dei Nostri Clienti</h2>
@@ -246,28 +271,34 @@
         
                 <div class="review-card">
                     <h3>"Perfetto per una giornata al mare!"</h3>
-                    <p><strong>Giulia S.</strong> - ⭐⭐⭐⭐</p>
-                    <p>Abbiamo passato una giornata fantastica. Il ristorante è ottimo, ma mi piacerebbe che migliorassero il servizio in spiaggia.</p>
+                    <p><strong>Giulia S.</strong> - ⭐⭐⭐⭐⭐</p>
+                    <p>Abbiamo passato una giornata fantastica. Il ristorante è ottimo, Ottimo il servizio in spiaggia.</p>
                 </div>
-        
-                <!-- Widget per recensioni di Google -->
-                <div id="google-reviews-widget">
-                    <iframe src="https://www.google.com/maps/embed/v1/place?q=Barbanera&key=YOUR_GOOGLE_API_KEY" frameborder="0" style="border:0; width:100%; height:300px;"></iframe>
-                    <p><strong>Non riesci a vedere le recensioni? <a href="https://www.google.it/search?sca_esv=3252dbeceb57d81a&hl=it&gl=it&cs=1&q=Barbanera" target="_blank">Clicca qui per vedere le recensioni su Google</a>.</strong></p>
-                </div>
-            </div>
-        
-            <!-- Pulsante per lasciare una recensione -->
+         <!-- Pulsante per lasciare una recensione -->
             <p class="leave-review">
-                Vuoi lasciare una recensione? <a href="https://www.google.it/search?sca_esv=3252dbeceb57d81a&hl=it&gl=it&cs=1&q=Barbanera" target="_blank">Clicca qui per lasciare la tua recensione!</a>
-            </p>
-        </section>
+                Vuoi lasciare una recensione? <a href="https://www.google.it/search?sca_esv=3252dbeceb57d81a&hl=it&gl=it&cs=1&q=Barbanera&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7s9-wtOarM-KY_wX6y4WEImFlu9Ex2J5u8oeW30EErVGhkDsN5oFLxdX3vt3sd-93gsHud0%3D&uds=ADvngMjKG8C2ZvFSOylXTIOGrf1iMbsefvOMEM1zlF1qurlwoUiBwNFe_AR21kAzhm-mo154fBF24kqNY7XWBJKZRdNhTce9MRg8dqTNoS_0h9ODvcmwvzo&sa=X&ved=2ahUKEwjz7OzKoPiKAxV69LsIHZhoMQgQ3PALegQIGxAE&biw=1325&bih=1070&dpr=2" target="_blank">Clicca qui per lasciare la tua recensione!</a></p>
+</section>
         
 
-        <section class="section" id="contatti-section">
-            <h2>Contattaci</h2>
-            <p>Seguici su <a href="https://www.facebook.com/ristorantebarbanera/" target="_blank">Facebook</a> o scrivici su <a href="https://wa.me/393207408549" target="_blank">WhatsApp</a></p>
-        </section>
+<section class="section" id="contatti-section">
+    <h2>Contattaci</h2>
+    <p>Seguici su:</p>
+    <div class="social-media">
+        <a href="https://www.facebook.com/ristorantebarbanera/" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://wa.me/393207408549" target="_blank" class="social-icon">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/ristorante_barbanera/" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="tel:+390858182241" class="social-icon">
+            <i class="fas fa-phone-alt"></i> Telefono
+        </a>
+    </div>
+</section>
+
     </main>
 
     <footer>
