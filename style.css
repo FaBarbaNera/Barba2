@@ -463,7 +463,15 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #ffffff;
-    position: relative;
+    position: fixed; /* Reso fisso per rimanere in fondo alla pagina */
+    bottom: 0;
+    left: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Aggiungi una transizione per la scomparsa */
 }
+
+footer.hidden {
+    transform: translateY(100%); /* Sposta il footer fuori dalla vista */
+}
+
