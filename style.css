@@ -12,6 +12,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assicura che il body si estenda per almeno l'altezza dello schermo */
+}
+
+main {
+    flex: 1; /* Questo fa sì che il main occupi tutto lo spazio disponibile, lasciando lo spazio per il footer */
 }
 
 header {
@@ -428,7 +435,6 @@ header {
     }
 }
 
-
 /* Pulsante WhatsApp */
 .whatsapp-btn {
     display: inline-block;
@@ -454,93 +460,7 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #ffffff;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-#side-menu.open {
-    left: 0; /* Sposta il menu a sinistra quando è aperto */
-}
-
-#side-menu {
-    position: fixed;
-    top: 0;
-    left: -250px; /* Posizione iniziale del menu fuori dalla vista */
-    height: 100%;
-    width: 250px;
-    background-color: #333;
-    transition: left 0.3s ease-in-out; /* Aggiungi la transizione per il movimento */
-    z-index: 100;
-}
-#menu-frame-container {
-    display: none; /* Default: nascosto */
-    position: relative;  /* Aggiunto per il controllo della posizione */
-    z-index: 10;         /* Assicurati che l'iframe sia sopra le altre sezioni */
-    margin-top: 20px;     /* Aggiunto per distanziare l'iframe */
-    padding: 20px;        /* Padding per rendere più visibile */
-}
-
-#side-menu {
-    z-index: 1000; /* Menù laterale sopra le altre sezioni */
-}
-
-
-/* Controlla che l'iframe abbia un z-index più alto di quello della sezione */
-#menu-frame {
-    width: 100%;
-    height: 600px;
-    border: none;
-    z-index: 9999; /* Assicurati che l'iframe venga sopra gli altri contenuti */
-}
-/* Stili per la sezione Home */
-#home-section {
-    background-color: #ff6347; /* Tomato */
-    padding: 40px;
-    text-align: center;
-}
-
-#home-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-#home-section p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-}
-
-/* Contenitore delle immagini */
-.home-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tre immagini per riga */
-    gap: 20px;
-    justify-items: center;
-    align-items: center;
-}
-
-/* Ogni immagine */
-.image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-container img:hover {
-    transform: scale(1.05); /* Aumenta leggermente l'immagine al passaggio del mouse */
-}
-
-/* Stili per dispositivi mobili */
-@media (max-width: 768px) {
-    .home-images {
-        grid-template-columns: repeat(2, 1fr); /* Due immagini per riga su tablet */
-    }
-}
-
-@media (max-width: 480px) {
-    .home-images {
-        grid-template-columns: 1fr; /* Una sola immagine per riga su smartphone */
-    }
 }
