@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordina dall'Ombrellone - Lido Barbanera</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <style>
+        /* Stile per l'icona del carrello */
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .cart-icon:hover {
+            background-color: #0056b3;
+        }
+
+        /* Stile per il carrello */
+        .cart {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 250px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 999;
+            display: none; /* Nascondiamo il carrello inizialmente */
+        }
+
+        .cart h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin-bottom: 5px;
+        }
+
+        .remove-item {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 2px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-item:hover {
+            background-color: darkred;
+        }
+
+        /* Animazione per la rimozione del prodotto */
+        @keyframes removeItem {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
+        .cart-item.removing {
+            animation: removeItem 0.5s forwards;
+        }
+
+        .cta-btn {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .cta-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Sezione pagamento */
+        #cash-options {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #cash-options select {
+            width: 100%;
+        }
+
+        .product-variant {
+            margin-top: 5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordina.html">Ordina dall'Ombrellone</a></li>
+                <li><a href="ombrelloni.html">Ombrelloni</a></li>
+                <li><a href="recensioni.html">Recensioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="order-intro">
+            <img src="images/logo.PNG" alt="Logo Lido Barbanera" id="logo">
+            <h1>Ordina dal Tuo Ombrellone!</h1>
+            <p>Scopri le nostre bevande fresche e ordina comodamente dal tuo ombrellone.</p>
+        </section>
+
+        <section id="bar-menu">
+            <div class="menu-category">
+                <h2>Bevande e non solo</h2>
+                <ul>
+                    <!-- Prodotto 1: Acqua Liscia o Frizzante -->
+                    <li>
+                        <h3>Acqua</h3>
+                        <p>Bottiglietta 0,5 l</p>
+                        <p class="price">€2.00</p>
+                        <button class="add-to-cart" data-name="Acqua" data-price="2.00">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Liscia">Liscia</option>
+                            <option value="Frizzante">Frizzante</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 1: Acqua Liscia o Frizzante -->
+                   
+                    <!-- Prodotto 2: Bevande in Lattina -->
+                    <li>
+                        <h3>Bevande in Lattina</h3>
+                        <p>Coca-Cola, Fanta, Sprite, The pesca o limone</p>
+                        <p class="price">€4.00</p>
+                        <button class="add-to-cart" data-name="Bevande in Lattina" data-price="4.00">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Coca-Cola">Coca-Cola</option>
+                            <option value="Fanta">Fanta</option>
+                            <option value="Sprite">Sprite</option>
+                            <option value="The pesca">The pesca</option>
+                            <option value="The limone">The limone</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 3: Succhi di Frutta -->
+                    <li>
+                        <h3>Succhi di Frutta</h3>
+                        <p>Pesca, Albicocca, Pera, Ananas</p>
+                        <p class="price">€4.00</p>
+                        <button class="add-to-cart" data-name="Succhi di Frutta" data-price="4.00">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Pesca">Pesca</option>
+                            <option value="Albicocca">Albicocca</option>
+                            <option value="Pera">Pera</option>
+                            <option value="Ananas">Ananas</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 4: Birre in Bottiglia -->
+                    <li>
+                        <h3>Birre in Bottiglia 0,33cl</h3>
+                        <p>Heineken, Beck's, Peroni</p>
+                        <p class="price">€4.50</p>
+                        <button class="add-to-cart" data-name="Birre in Bottiglia 0,33cl" data-price="4.50">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Heineken">Heineken</option>
+                            <option value="Beck's">Beck's</option>
+                            <option value="Peroni">Peroni</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 4: Birre in Bottiglia speciali -->
+                    <li>
+                        <h3>Birre Speciali in Bottiglia 0,33cl</h3>
+                        <p>Corona, Raffo Ichnusa</p>
+                        <p class="price">€4.50</p>
+                        <button class="add-to-cart" data-name="Birre Speciali in Bottiglia 0,33cl" data-price="4.50">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Corona">Corona</option>
+                            <option value="Raffo">Raffo</option>
+                            <option value="Ichnusa">Ichnusa</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 5: Cocktail Analcolici -->
+                    <li>
+                        <h3>Cocktail </h3>
+                        <p>Gin Tonic, Gin Lemon, Americano, Negroni, Mojito</p>
+                        <p class="price">€10.00</p>
+                        <button class="add-to-cart" data-name="Cocktail" data-price="5.00">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Gin Tonic">Gin Tonic</option>
+                            <option value="Gin Lemon">Gin Lemon</option>
+                            <option value="Americano">Americano</option>
+                            <option value="Negroni">Negroni</option>
+                            <option value="Mojito">Mojito</option>
+                        </select>
+                    </li>
+                    <!-- Prodotto 6: Frullati -->
+                    <li>
+                        <h3>Frullati</h3>
+                        <p>Banana, Fragola, Mirtillo</p>
+                        <p class="price">€5.50</p>
+                        <button class="add-to-cart" data-name="Frullati" data-price="5.50">+</button>
+                        <select class="product-variant">
+                            <option>--scegli qui--</option>
+                            <option value="Banana">Banana</option>
+                            <option value="Fragola">Fragola</option>
+                            <option value="Mirtillo">Mirtillo</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </section>
+                    <!-- Altri prodotti qui (nessuna modifica necessaria) -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="order-details">
+            <label for="ombrellone-number">Numero Ombrellone:</label>
+            <input type="number" id="ombrellone-number" placeholder="Es. 5" min="1" required>
+            
+            <p class="whatsapp-info">Una volta inserito il numero dell'ombrellone, ordina direttamente su WhatsApp!</p>
+        
+            <p>Scegli il metodo di pagamento</p>
+            <select id="payment-method">
+                <option value="scegli">--scegli qui--</option>
+                <option value="card">Carta</option>
+                <option value="cash">Contante</option>
+            </select>
+        <br>
+        <label for="custom-cash">Importo personalizzato (€):</label>
+        <input type="number" id="custom-cash" placeholder="Inserisci importo" step="0.01" min="0" style="width: 100px;">
+    
+        
+            <div id="cash-options" style="display: none;">
+                <label>Seleziona la banconota</label>
+                <select id="cash-amount">
+                    <option>--scegli qui--</option>
+                    <option value="5">€5</option>
+                    <option value="10">€10</option>
+                    <option value="20">€20</option>
+                    <option value="50">€50</option>
+                    <option value="100">€100</option>
+                </select>
+            </div>
+        
+            <a id="whatsapp-button" href="#" target="_blank" class="cta-btn">Ordina su WhatsApp</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Lido Barbanera | Tutti i diritti riservati</p>
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </footer>
+
+    <!-- Carrello -->
+    <div class="cart">
+        <h3>Il Tuo Carrello</h3>
+        <ul id="cart-items">
+            <!-- I prodotti aggiunti saranno mostrati qui -->
+        </ul>
+        <p>Total: €<span id="cart-total">0.00</span></p>
+    </div>
+
+    <!-- Icona del carrello -->
+    <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-badge" class="badge">0</span>
+    </div>
+
+    <script>
+let cart = [];
+
+// Funzione per aggiornare il carrello
+function updateCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartBadge = document.getElementById('cart-badge');
+    cartItemsContainer.innerHTML = ''; // Pulisce il contenuto esistente
+    let total = 0;
+    let totalItems = 0; // Inizializza il totale degli articoli (in base alla quantità)
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.classList.add('cart-item'); // Aggiungi la classe per l'animazione
+        li.innerHTML = `
+            ${item.name} - ${item.variant} - €${(item.price * item.quantity).toFixed(2)}
+            <button class="remove-item" data-id="${item.id}">Rimuovi</button>
+            <button class="decrease-item" data-id="${item.id}">-</button>
+            <button class="increase-item" data-id="${item.id}">+</button>
+            <span class="item-quantity">x${item.quantity}</span>
+        `;
+        cartItemsContainer.appendChild(li);
+        total += item.price * item.quantity;
+        totalItems += item.quantity; // Somma la quantità al totale degli articoli
+    });
+
+    cartTotal.textContent = total.toFixed(2); // Aggiorna il totale
+    cartBadge.textContent = totalItems; // Aggiorna il badge con il numero totale degli articoli
+}
+
+// Aggiungi i prodotti al carrello
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        const variantSelect = this.closest('li').querySelector('.product-variant');
+        const variant = variantSelect ? variantSelect.value : null;
+        const id = `${name}-${variant}`;
+
+        if (variant && variant !== '--scegli qui--') {
+            // Verifica se il prodotto è già presente nel carrello
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                // Se esiste, aumentiamo la quantità
+                existingItem.quantity += 1;
+            } else {
+                // Altrimenti, lo aggiungiamo al carrello con quantità 1
+                cart.push({ id, name, price, variant, quantity: 1 });
+            }
+            updateCart();
+        } else {
+            alert('Per favore, seleziona una variante per il prodotto.');
+        }
+    });
+});
+
+// Rimuovi un prodotto dal carrello
+document.getElementById('cart-items').addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        const cartItem = event.target.closest('li');
+        
+        cartItem.classList.add('removing');
+        
+        setTimeout(() => {
+            // Rimuove l'articolo dal carrello dopo l'animazione
+            cart = cart.filter(item => item.id !== itemId);
+            updateCart();
+        }, 500); // Tempo che corrisponde all'animazione
+    }
+
+    // Riduci la quantità di un prodotto
+    if (event.target.classList.contains('decrease-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        const cartItem = cart.find(item => item.id === itemId);
+
+        if (cartItem.quantity > 1) {
+            cartItem.quantity -= 1;
+        } else {
+            // Se la quantità è 1, lo rimuoviamo dal carrello
+            cart = cart.filter(item => item.id !== itemId);
+        }
+        updateCart();
+    }
+
+    // Aumenta la quantità di un prodotto
+    if (event.target.classList.contains('increase-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        const cartItem = cart.find(item => item.id === itemId);
+
+        cartItem.quantity += 1;
+        updateCart();
+    }
+});
+
+// Visualizza il carrello al clic
+document.querySelector('.cart-icon').addEventListener('click', function() {
+    const cartElement = document.querySelector('.cart');
+    cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
+});
+
+// Mostra le opzioni di pagamento in contante e il campo per importo personalizzato
+document.getElementById('payment-method').addEventListener('change', function() {
+    const cashOptions = document.getElementById('cash-options');
+    const customCashInput = document.getElementById('custom-cash');
+    if (this.value === 'cash') {
+        cashOptions.style.display = 'block';
+        customCashInput.style.display = 'inline-block';  // Mostra il campo personalizzato
+    } else {
+        cashOptions.style.display = 'none';
+        customCashInput.style.display = 'none';  // Nascondi il campo personalizzato
+    }
+});
+
+
+// Prepara il link di WhatsApp con il metodo di pagamento e l'importo
+document.getElementById('whatsapp-button').addEventListener('click', function(event) {
+    const number = document.getElementById('ombrellone-number').value;
+    
+    // Verifica se il numero dell'ombrellone è valido (tra 1 e 250)
+    if (number < 1 || number > 250) {
+        alert('Per favore, inserisci un numero di ombrellone valido tra 1 e 250.');
+        event.preventDefault();  // Previeni il reindirizzamento alla pagina WhatsApp
+        return;  // Fermati qui se il numero non è valido
+    }
+
+    const paymentMethod = document.getElementById('payment-method').value;
+    let paymentInfo = '';
+    let changeAmount = 0;
+
+    // Verifica che sia stato scelto un metodo di pagamento
+    if (paymentMethod === 'scegli') {
+        alert('Per favore, seleziona un metodo di pagamento.');
+        event.preventDefault();  // Previeni il reindirizzamento alla pagina WhatsApp
+        return;
+    }
+
+    // Se pagamento contante, controlla se l'utente ha inserito un importo personalizzato
+    if (paymentMethod === 'cash') {
+        const customAmount = parseFloat(document.getElementById('custom-cash').value);  // Importo inserito dall'utente
+        const selectedAmount = parseFloat(document.getElementById('cash-amount').value);  // Importo selezionato dall'utente (banconote)
+        
+        const totalPrice = parseFloat(document.getElementById('cart-total').textContent); // Prezzo totale del carrello
+
+        // Se l'utente ha inserito un importo personalizzato
+        if (customAmount > 0) {
+            if (customAmount < totalPrice) {
+                alert('L\'importo inserito è inferiore al totale dell\'ordine.');
+                event.preventDefault();  // Fermati qui se l'importo è insufficiente
+                return;
+            } else {
+                changeAmount = customAmount - totalPrice;  // Calcola il resto
+                paymentInfo = `Pagamento in contante: €${customAmount}. Resto: €${changeAmount.toFixed(2)}`;
+            }
+        } else {
+            // Se non c'è un importo personalizzato, usa l'importo della banconota selezionata
+            changeAmount = selectedAmount - totalPrice;
+            paymentInfo = `Pagamento in contante: €${selectedAmount}. Resto: €${changeAmount.toFixed(2)}`;
+        }
+    } else if (paymentMethod === 'card') {
+        paymentInfo = 'Pagamento con carta';
+    }
+
+    if (cart.length > 0 && number) {
+        const cartSummary = cart.map(item => `${item.name} ${item.variant} x${item.quantity}`).join(', ');
+        const totalPrice = document.getElementById('cart-total').textContent;
+        const message = `Ciao, vorrei ordinare dal mio ombrellone ${number}:   ${cartSummary} Importo totale: €${totalPrice}. ${paymentInfo}`;
+        
+        // Procedi con il reindirizzamento solo dopo che l'alert è stato chiuso
+        this.href = `https://wa.me/+393207408549?text=${encodeURIComponent(message)}`; // Sostituisci con il tuo numero di WhatsApp
+    } else {
+        alert('Per favore, seleziona il numero dell\'ombrellone e aggiungi articoli al carrello.');
+    }
+});
+
+
+    </script>
+</body>
+</html>
+
+

@@ -1,19 +1,19 @@
 {
-    "name": "Web App Mobile",
-    "short_name": "WebApp",
-    "description": "Una semplice web app per smartphone",
-    "start_url": "/",
+    "name": "Lido Barbanera",
+    "short_name": "Barbanera",
+    "description": "Il miglior ristorante di pesce sulla spiaggia",
+    "start_url": "https://fabarbanera.github.io/newpro1/index.html",
     "display": "standalone",
-    "background_color": "#f4f4f4",
-    "theme_color": "#3e8e41",
+    "background_color": "#ffffff",
+    "theme_color": "#f8db01",
     "icons": [
       {
-        "src": "icons/icon-192x192.png",
+        "src": "/images/icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "icons/icon-512x512.png",
+        "src": "/images/icon-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }

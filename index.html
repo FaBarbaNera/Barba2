@@ -3,366 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ristorante e Chalet al Mare</title>
+    <title>Lido Barbanera - Il tuo ristorante di pesce sulla spiaggia</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        /* Stili generali */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Menu laterale */
-        #side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            height: 100%;
-            width: 250px;
-            background-color: #333;
-            transition: left 0.3s ease-in-out;
-            z-index: 100;
-        }
-
-        #side-menu.open {
-            left: 0;
-        }
-
-        #side-menu a {
-            display: block;
-            padding: 15px;
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s;
-        }
-
-        #side-menu a:hover {
-            background-color: #0095ff;
-        }
-
-        /* Bottone per aprire il menu */
-        #menu-toggle {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 30px;
-            color: #333;
-            cursor: pointer;
-        }
-
-        /* Sezioni dinamiche */
-        .section {
-            display: none;
-            padding: 40px;
-            color: #fff;
-            text-align: center;
-            height: 100vh;
-        }
-
-        .section h2 {
-            font-size: 2.5em;
-        }
-
-        /* Colori per le sezioni */
-        #home-section {
-            background-color: #ff6347; /* Tomato */
-        }
-
-        #menu-section {
-            background-color: #ff8c00; /* Dark Orange */
-        }
-
-        #ordina-section {
-            background-color: #228B22; /* Dark Green */
-        }
-
-        #ombrelloni-section {
-            background-color: #1e90ff; /* Dodger Blue */
-        }
-
-        #recensioni-section {
-            background-color: #9932cc; /* Dark Orchid */
-        }
-
-        #contatti-section {
-            background-color: #ff1493; /* Deep Pink */
-        }
-
-        /* Stili per il pulsante WhatsApp */
-        .whatsapp-btn {
-            display: inline-block;
-            margin: 10px;
-            background-color: #25D366; 
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-        }
-
-        .whatsapp-btn i {
-            margin-right: 8px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <header>
+        <nav>
+            <!-- Icona del menu hamburger -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            
+            <!-- Menu di navigazione -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordina.html">Ordina dall'Ombrellone</a></li>
+                <li><a href="ombrelloni.html">Ombrelloni</a></li>
+                <li><a href="recensioni.html">Recensioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Menu laterale -->
-    <div id="side-menu">
-        <a href="#home" id="home-link">Home</a>
-        <a href="#menu" id="menu-link">Menu</a>
-        <a href="#ordina" id="ordina-link">Ordina dall'Ombrellone</a>
-        <a href="#ombrelloni" id="ombrelloni-link">Ombrelloni</a>
-        <a href="#recensioni" id="recensioni-link">Recensioni</a>
-        <a href="#contatti" id="contatti-link">Contatti</a>
-    </div>
-
-    <!-- Bottone per aprire il menu -->
-    <div id="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-
-    <!-- Sezioni dinamiche -->
     <main>
-        <section class="section" id="home-section">
-            <h2>Benvenuti al nostro Ristorante e Chalet al Mare!</h2>
-            <p>Goditi una giornata di relax con il nostro servizio spiaggia, bar sotto l'ombrellone e tanto altro.</p>
-            
-            <!-- Contenitore per le immagini -->
-            <div class="home-images">
-                <div class="image-container">
-                    <img src="path/to/your/image1.jpg" alt="Spiaggia" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image2.jpg" alt="Ristorante vista mare" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image3.jpg" alt="Tavolo al tramonto" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image4.jpg" alt="Ombrelloni sulla spiaggia" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image5.jpg" alt="Cocktail in spiaggia" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image6.jpg" alt="Pranzo all'aperto" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image7.jpg" alt="Pesce fresco" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image8.jpg" alt="Relax sotto l'ombrellone" />
-                </div>
-                <div class="image-container">
-                    <img src="path/to/your/image9.jpg" alt="Vista sul mare al tramonto" />
-                </div>
+        <section id="intro">
+             <!-- Logo sopra il titolo -->
+             <div class="logo">
+                <img src="images/logo.PNG" alt="Logo Lido Barbanera" />
+            </div>
+            <h1>Benvenuto al Lido Barbanera!</h1>
+            <p>Vieni a scoprire il miglior ristorante di pesce sulla spiaggia! Oppure ordina direttamente al bar dal tuo ombrellone e goditi la vista.</p>
+            <a href="menu.html" class="cta-btn">Scopri il Menù</a>
+        </section>
+    </main>
+         <!-- Sezione con le immagini che cambiano -->
+         <section id="review-container"> <!-- Qui usiamo review-container per coerenza -->
+            <div class="review-container">
+                <img src="images/pesce1.jpg" alt="Pesce fresco" class="carousel-image" id="carousel-img-1">
+                <img src="images/pesce2.jpg" alt="Pesce grigliato" class="carousel-image" id="carousel-img-2">
+                <img src="images/pesce3.jpg" alt="Piatti tipici" class="carousel-image" id="carousel-img-3">
+                <img src="images/pesce4.jpg" alt="Piatti tipici" class="carousel-image" id="carousel-img-4">
+                <img src="images/pesce5.jpg" alt="Piatti tipici" class="carousel-image" id="carousel-img-5">
             </div>
         </section>
-        
 
-        <section class="section" id="menu-section">
-            <h2>Il Nostro Menu</h2>
-            <p>Scopri il nostro menù ricco di piatti freschi e gustosi, preparati con ingredienti locali e di qualità.</p>
-            
-            <!-- Pulsante che apre il menu in una nuova pagina -->
-            <p>Se non visualizzi il nostro menù, <a href="https://web.popup.lol/dalboss" target="_blank">clicca qui</a> per aprirlo in una nuova pagina.</p>
-        
-            <!-- Iframe che carica il menu -->
-            <div id="menu-frame-container" style="display: block;">
-                <iframe id="menu-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
+        <section id="features">
+            <h2>Perché scegliere noi?</h2>
+            <div class="feature">
+                <h3>Piatti freschi e locali</h3>
+                <p>Il miglior pesce fresco del mare direttamente sulla tua tavola.</p>
             </div>
-            
-            </section>
-        
-
-        <section class="section" id="ordina-section">
-            <h2>Ordina dall'Ombrellone</h2>
-            <p>Ordina comodamente dal tuo ombrellone e ricevi direttamente il tuo ordine in spiaggia!</p>
-            
-           <!-- Pulsante WhatsApp per contattare direttamente -->
-            <a href="https://wa.me/393207408549?text=Vorrei ordinare qualcosa" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Contattaci su WhatsApp
-            </a>
-            
-            <!-- Messaggio con link per aprire in una nuova finestra, se l'iframe non si carica -->
-            <p>Se non visualizzi il nostro menù, <a href="https://web.popup.lol/dalboss" target="_blank">clicca qui</a> per aprirlo in una nuova pagina.</p>
-        <!-- Iframe che carica il servizio di ordine -->
-            <div id="ordina-frame-container" style="display: block;">
-                <iframe id="ordina-frame" src="https://web.popup.lol/dalboss" frameborder="0" width="100%" height="600px"></iframe>
+            <div class="feature">
+                <h3>Servizio in spiaggia</h3>
+                <p>Ordina dal tuo ombrellone senza muoverti!</p>
+            </div>
+            <div class="feature">
+                <h3>Recensioni eccellenti</h3>
+                <p>Scopri cosa dicono i nostri clienti felici!</p>
             </div>
         </section>
-        
-
-        <section class="section" id="ombrelloni-section">
-            <h2>Ombrelloni e Servizi</h2>
-            <p>Scegli il tuo ombrellone e goditi una giornata indimenticabile al mare. Seleziona il posto che preferisci e rilassati!</p>
-            
-            <div class="ombrelloni-gallery">
-                <div class="ombrellone">
-                    <img src="path_to_image/ombrellone1.jpg" alt="Ombrellone Standard" />
-                    <h3>Ombrellone Standard</h3>
-                    <p>Un ombrellone comodo con lettino e servizio bar incluso.</p>
-                </div>
-                <div class="ombrellone">
-                    <img src="path_to_image/ombrellone2.jpg" alt="Ombrellone Premium" />
-                    <h3>Ombrellone Premium</h3>
-                    <p>Un ombrellone più grande, con lettino e servizio VIP.</p>
-                </div>
-                <div class="ombrellone">
-                    <img src="path_to_image/ombrellone3.jpg" alt="Ombrellone Deluxe" />
-                    <h3>Ombrellone Deluxe</h3>
-                    <p>Il massimo del comfort con lettino, teli mare, e cocktail inclusi.</p>
-                </div>
-            </div>
-        
-            <div class="prenotazione-link">
-                <!-- Link WhatsApp con il messaggio predefinito -->
-                <a href="https://wa.me/393207408549?text=Vorrei%20prenotare%20un%20ombrellone%20(standard/premium/deluxe)%20per%20il%20giorno%20XX%2FYY%2FZZ" class="prenotazione-btn">Prenota il tuo ombrellone</a>
-            </div>
-        </section>
-        
-        
-
-        <section class="section" id="recensioni-section">
-            <h2>Recensioni dei Nostri Clienti</h2>
-            <p>Leggi cosa dicono di noi i nostri clienti!</p>
-        
-            <!-- Sezione delle recensioni dirette -->
-            <div class="reviews-container">
-                <div class="review-card">
-                    <h3>"Il miglior ristorante sulla spiaggia!"</h3>
-                    <p><strong>Marco R.</strong> - ⭐⭐⭐⭐⭐</p>
-                    <p>Il cibo è sempre fresco e il servizio è impeccabile. Tornerò sicuramente!</p>
-                </div>
-        
-                <div class="review-card">
-                    <h3>"Un'esperienza indimenticabile"</h3>
-                    <p><strong>Luca P.</strong> - ⭐⭐⭐⭐⭐</p>
-                    <p>Atmosfera rilassante, ottimi piatti e personale super disponibile.</p>
-                </div>
-        
-                <div class="review-card">
-                    <h3>"Perfetto per una giornata al mare!"</h3>
-                    <p><strong>Giulia S.</strong> - ⭐⭐⭐⭐⭐</p>
-                    <p>Abbiamo passato una giornata fantastica. Il ristorante è ottimo, Ottimo il servizio in spiaggia.</p>
-                </div>
-         <!-- Pulsante per lasciare una recensione -->
-            <p class="leave-review">
-                Vuoi lasciare una recensione? <a href="https://www.google.it/search?sca_esv=3252dbeceb57d81a&hl=it&gl=it&cs=1&q=Barbanera&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7s9-wtOarM-KY_wX6y4WEImFlu9Ex2J5u8oeW30EErVGhkDsN5oFLxdX3vt3sd-93gsHud0%3D&uds=ADvngMjKG8C2ZvFSOylXTIOGrf1iMbsefvOMEM1zlF1qurlwoUiBwNFe_AR21kAzhm-mo154fBF24kqNY7XWBJKZRdNhTce9MRg8dqTNoS_0h9ODvcmwvzo&sa=X&ved=2ahUKEwjz7OzKoPiKAxV69LsIHZhoMQgQ3PALegQIGxAE&biw=1325&bih=1070&dpr=2" target="_blank">Clicca qui per lasciare la tua recensione!</a></p>
-</section>
-        
-
-<section class="section" id="contatti-section">
-    <h2>Contattaci</h2>
-    <p>Seguici su:</p>
-    <div class="social-media">
-        <a href="https://www.facebook.com/ristorantebarbanera/" target="_blank" class="social-icon">
-            <i class="fab fa-facebook-f"></i> Facebook
-        </a>
-        <a href="https://wa.me/393207408549" target="_blank" class="social-icon">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/ristorante_barbanera/" target="_blank" class="social-icon">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="tel:+390858182241" class="social-icon">
-            <i class="fas fa-phone-alt"></i> Telefono
-        </a>
-    </div>
-</section>
-
     </main>
 
     <footer>
-        <p>&copy; 2025 Ristorante e Chalet al Mare. Tutti i diritti riservati.</p>
+        <p>&copy; 2025 Lido Barbanera | Tutti i diritti riservati</p>
+        <a href="privacy-policy.html">Privacy Policy</a>
     </footer>
+    
 
-    <script>
-        // Funzione per aprire e chiudere il menu laterale
-        function toggleMenu() {
-            document.getElementById('side-menu').classList.toggle('open');
-        }
-
-        // Funzione per caricare dinamicamente le sezioni
-        const links = document.querySelectorAll('#side-menu a');
-        const sections = document.querySelectorAll('.section');
-
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').slice(1); // Ottieni l'id della sezione
-
-                // Nascondi tutte le sezioni
-                sections.forEach(section => {
-                    section.style.display = 'none';
-                });
-
-                // Mostra la sezione selezionata
-                const targetSection = document.getElementById(targetId + '-section');
-                targetSection.style.display = 'block'; // Mostra la sezione cliccata
-
-                // Modifica il colore di sfondo della sezione in base al tasto
-                if (targetId === 'home') {
-                    targetSection.style.backgroundColor = '#ff6347'; // Tomato
-                } else if (targetId === 'menu') {
-                    targetSection.style.backgroundColor = '#ff8c00'; // Dark Orange
-                } else if (targetId === 'ordina') {
-                    targetSection.style.backgroundColor = '#228B22'; // Dark Green
-                } else if (targetId === 'ombrelloni') {
-                    targetSection.style.backgroundColor = '#1e90ff'; // Dodger Blue
-                } else if (targetId === 'recensioni') {
-                    targetSection.style.backgroundColor = '#9932cc'; // Dark Orchid
-                } else if (targetId === 'contatti') {
-                    targetSection.style.backgroundColor = '#ff1493'; // Deep Pink
-                }
-
-                // Rimuovi la classe 'active' da tutti i link
-                links.forEach(link => {
-                    link.classList.remove('active');
-                });
-
-                // Aggiungi la classe 'active' al link selezionato
-                this.classList.add('active');
-
-                // Chiudi il menu dopo il clic (opzionale)
-                document.getElementById('side-menu').classList.remove('open');
-            });
-        });
-
-        // Mostrare la sezione "Home" come predefinita quando la pagina si carica
-        document.addEventListener('DOMContentLoaded', function() {
-            const defaultSection = document.getElementById('home-section');
-            defaultSection.style.display = 'block'; // Mostra la sezione Home per default
-        });
-    </script>
-
+    <script src="app.js"></script>
 </body>
 </html>
+<script>
+    let currentIndex = 0; // L'indice dell'immagine visibile
+    const images = document.querySelectorAll('.carousel-image'); // Seleziona tutte le immagini del carosello
+    const totalImages = images.length; // Numero totale di immagini
+
+    // Funzione per cambiare l'immagine visibile
+    function showNextImage() {
+        // Nascondi l'immagine corrente
+        images[currentIndex].style.display = 'none';
+
+        // Incrementa l'indice per mostrare la prossima immagine
+        currentIndex = (currentIndex + 1) % totalImages; // Torna alla prima immagine se arriva all'ultima
+
+        // Mostra la prossima immagine
+        images[currentIndex].style.display = 'block';
+    }
+
+    // Imposta l'intervallo per cambiare immagine ogni 5 secondi (5000 ms)
+    setInterval(showNextImage, 5000);
+
+    // Mostra la prima immagine all'inizio
+    showNextImage();
+    // Seleziona gli elementi
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navLinks = document.getElementById('nav-links');
+
+// Aggiungi un evento di click all'icona del menu
+hamburgerMenu.addEventListener('click', () => {
+    // Aggiungi o rimuovi la classe 'show' per mostrare o nascondere il menu
+    navLinks.classList.toggle('show');
+});
+
+</script>
